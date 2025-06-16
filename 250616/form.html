@@ -35,6 +35,51 @@
                         <label for="mail">메일주소</label>
                         <input type="text" name="mail" id="mail" placeholder="메일을 입력해주세요.">
                     </li>
+                    <li>
+                        <label for="age">나이</label>
+                        <input type="number" name="age" id="age" min="0" max="150" placeholder="나이를 입력해주세요.">
+                    </li>
+                    <li>
+                        <label for="tel">전화번호</label>
+                        <input type="tel" name="tel" id="tel" placeholder="전화번호를 입력해주세요.">
+                    </li>
+                    <li>
+                        <label>구독1<input type="checkbox" name="subscribe" id="subscribe"></label>
+                        <label>구독2<input type="checkbox" name="subscribe" id="subscribe"></label>
+                        <label>구독3<input type="checkbox" name="subscribe" id="subscribe"></label>
+                    </li>
+                    <li>
+                        <label><input type="radio" name="gender" id="male">남자</label>
+                        <label><input type="radio" name="gender" id="female">여자</label>
+                    </li>
+                    <li>
+                        <input type="file" name="file">
+                    </li>
+                    <li>
+                        <input type="date" name="date">
+                    </li>
+                    <li>
+                        <input type="range" name="range">
+                    </li>
+                    <li>
+                        <input type="color" name="color">
+                    </li>
+                    <li>
+                        <label for="country">국가 선택</label>
+                        <select name="country" id="country">
+                            <option value="us">USA</option>
+                            <option value="ca">CANADA</option>
+                            <option value="JP">JAPAN</option>
+                            <option value="KR">KOREA</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="message">메세지 입력:</label>
+                        <textarea name="message" id="message" row="5" cols="50" placeholder="메세지 입력"></textarea>
+                    </li>
+                    <li>
+                        <button type="submit">제출</button>
+                    </li>
                 </ul>
             </fieldset>
         </form>
