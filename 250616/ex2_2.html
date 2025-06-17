@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>납품 템플릿</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <ol>
+                <li>
+                    <label for="name">납품자명 : </label>
+                    <input type="text" name="name" id="name">
+                </li><br>
+                <li>
+                    <label for="email">email : </label>
+                    <input type="email" name="email" id="email" placeholder="answer@answer.com">
+                </li><br>
+                <li>
+                    <label for="homepage">홈페이지 : </label>
+                    <input type="text" name="homepage" id="homepage" value="http://">
+                </li><br>
+                <li>
+                    <label for="area">지역 : </label>
+                    <select name="area" id="area">
+                        <option value="seoul">서울</option>
+                        <option value="daegue">대구</option>
+                        <option value="busan">부산</option>
+                    </select>
+                </li>
+            </ol>
+        </fieldset>
+        <fieldset>
+            <legend>납품 정보</legend>
+            <ul>
+                <li>
+                    <label for="product_name">상품명 : </label>
+                    <input type="text" name="product_name" id="product_name">
+                </li><br>
+                <li>
+                    <label for="quantity">납품수량 : </label>
+                    <input type="text" name="quantity" id="quantity" placeholder="최소 100" min="100">
+                </li><br>
+                <li>
+                    <label for="grade">납품등급 : </label>
+                    <input type="range" name="grade" id="grade">
+                </li><br>
+                <li>
+                    <label for="etc">기타사항 : </label>
+                <textarea name="etc" id="etc" rows="5"></textarea>
+                </li>
+            </ul>
+        </fieldset><br>
+        <input type="submit" value="send message">
+    </form>
+</body>
+</html>
