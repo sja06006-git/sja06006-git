@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>점수 계산기</title>
+</head>
+<body>
+    <h2>과목 점수 입력</h2>
+    <label>국어: <input type="number" name="kor" id="kor" placeholder="점수 입력"></label><br>
+    <label>수학: <input type="number" name="math" id="math" placeholder="점수 입력"></label><br>
+    <label>영어: <input type="number" name="eng" id="eng" placeholder="점수 입력"></label><br>
+    <label>과학: <input type="number" name="sci" id="sci" placeholder="점수 입력"></label><br>
+    
+    <button onclick="calculate()">계산하기</button>
+
+    <h3>결과</h3>
+    <p id="total"></p>
+    <p id="avg"></p>
+    <p id="grd"></p>
+
+
+    <script src="calc.js"></script>
+</body>
+</html>
