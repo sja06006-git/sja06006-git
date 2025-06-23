@@ -1,0 +1,19 @@
+.table1 {
+    border: 1px solid black;
+}
+
+.table2 {
+    border: 1;
+}
+
+.table2 th {
+    background-color: lightgray;
+}
+
+th{
+    border: 1px solid black;
+}
+
+td{
+    border: 1px solid black;
+}
