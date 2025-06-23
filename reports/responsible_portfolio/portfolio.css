@@ -1,0 +1,86 @@
+:root {
+    --main-card-top: 50vh;
+    --main-card-left: 50vw;
+    --card1-index-value: 4;
+    --card2-index-value: 3;
+    --card3-index-value: 2;
+    --card4-index-value: 1;
+    --card5-index-value: 0;
+    --card-position-gap: 0; 
+    /* vh는 1배수 vw는 2배수로 js에서 for문 돌리기 */
+}
+
+body {
+    background-color: lightgray;
+    /* background: linear-gradient(to bottom, lightgray, darkgray); */
+}
+
+.card {
+    width: 600px;
+    height: 400px;
+    background-color: white;
+    margin: auto;
+    box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: absolute;
+    top: var(--main-card-top);
+    left: var(--main-card-left);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 2px dashed rgba(0, 0, 255, 0.2);
+    cursor: pointer;
+}
+
+.card1 {
+    z-index: var(--card1-index-value);
+}
+
+.card2 {
+    z-index: var(--card2-index-value);
+    top: calc(var(--main-card-top) - 1vh);
+    left: calc(var(--main-card-left) + 2vw);
+}
+
+.card3 {
+    z-index: var(--card3-index-value);
+    top: calc(var(--main-card-top) - 2vh);
+    left: calc(var(--main-card-left) + 4vw);
+}
+
+.card4 {
+    z-index: var(--card4-index-value);
+    top: calc(var(--main-card-top) - 3vh);
+    left: calc(var(--main-card-left) + 6vw);
+}
+
+.card5 {
+    z-index: var(--card5-index-value);
+    top: calc(var(--main-card-top) - 4vh);
+    left: calc(var(--main-card-left) + 8vw);
+}
+
+/* 반응형 웹 구현 */
+/* 데스크탑 */
+@media screen and (min-width: 1024px) {
+    .card {
+        width: 900px;
+        height: 600px;
+        font-size: 27pt;
+    }
+}
+/* 태블릿 */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .card {
+        width: 600px;
+        height: 400px;
+        font-size: 18pt;
+    }
+}
+/* 스마트폰 */
+@media screen and (max-width: 767px) {
+    .card {
+        width: 450px;
+        height: 300px;
+        font-size: 13.5pt;
+    }
+}

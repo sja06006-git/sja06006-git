@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <script>
+        alert("넘길 페이지를 클릭");
+    </script>
+    <main>
+        <div class="card card1">
+            <h3>Portfolio</h3>
+            <img src="/reports/1.png" alt="profile_image" width="100px" height="100px">
+            <p>
+                이름: 박재훈<br>
+                연락처: 010-3174-9831<br>
+                E-mail: sja06006@naver.com<br>
+            </p>
+        </div>
+        <div class="card card2">
+            <h3>내용1</h3>
+            <img src="/reports/1.png" alt="image1" width="100px" height="100px">
+            <p>
+                내용 설명1<br>
+                내용 설명2<br>
+                내용 설명3<br>
+            </p>
+        </div>
+        <div class="card card3">
+            <h3>내용2</h3>
+            <img src="/reports/1.png" alt="image1" width="100px" height="100px">
+            <p>
+                내용 설명1<br>
+                내용 설명2<br>
+                내용 설명3<br>
+            </p>
+        </div>
+        <div class="card card4">
+            <h3>내용3</h3>
+            <img src="/reports/1.png" alt="image1" width="100px" height="100px">
+            <p>
+                내용 설명1<br>
+                내용 설명2<br>
+                내용 설명3<br>
+            </p>
+        </div>
+        <div class="card card5">
+            <h3>내용4</h3>
+            <img src="/reports/1.png" alt="image1" width="100px" height="100px">
+            <p>
+                내용 설명1<br>
+                내용 설명2<br>
+                내용 설명3<br>
+            </p>
+        </div>
+    </main>
+    <script>
+        let no = 0;
+        const card = document.querySelectorAll(".card").forEach(card => {
+            card.addEventListener("click", function (event) {
+            console.log(`${card.className}`)
+            })
+        })
+        function cardno () {
+            if (`${card.className}` === "card card1") {
+                document.documentElement.style.setProperty('--card1-index-value', 5);
+            }
+            else if (`${card.className}` === "card card2") {
+                document.documentElement.style.setProperty('--card2-index-value', 5);
+            }
+            else if (`${card.className}` === "card card3") {
+                document.documentElement.style.setProperty('--card3-index-value', 5);
+            }
+            else if (`${card.className}` === "card card4") {
+                document.documentElement.style.setProperty('--card4-index-value', 5);
+            }
+            else if (`${card.className}` === "card card5") {
+                document.documentElement.style.setProperty('--card5-index-value', 5);
+            }
+            else return 0;
+        }
+        // function page () {
+        //     if (z-index !== 4) {
+        //         --card-index-value == 5;
+        //     }
+        // }
+    </script>
+</body>
+</html>
