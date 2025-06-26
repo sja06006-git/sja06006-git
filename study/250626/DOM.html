@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 예제</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .active {
+            box-shadow: 2px 4px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <p id="greeting">안녕하세요! 반갑습니다!</p>
+    <img src="https://picsum.photos/200/300" alt="random image">
+    <img src="https://picsum.photos/600/600" alt="random image">
+    <button id="change-image">이미지 변경</button>
+    <div class="box"></div>
+    <button id="btn">색상 변경</button>
+    <div id="element-add">요소 추가 div</div>
+    <button id="element-add-button">요소 추가 버튼</button>
+    <button id="move-element">요소 이동 버튼</button>
+    <button id="remove-element">요소 삭제 버튼</button>
+    <script>
+        let text = document.getElementById("greeting");
+        text.innerText = "Hello World!"; //innerText를 통한 text 변경
+        console.log(text);
+
+        let image = document.getElementsByTagName("img");
+        image[0].src = "https://picsum.photos/300/300";
+        image[1].src = "https://picsum.photos/300/300";
+
+        let button = document.getElementById("change-image");
+        button.addEventListener("click", function () {
+            let image = document.getElementsByTagName("img");
+            image[0].src = "https://picsum.photos/"+parseInt((Math.random()*400)+100)+"/"+parseInt((Math.random()*400)+100);
+            image[1].src = "https://picsum.photos/"+parseInt((Math.random()*400)+100)+"/"+parseInt((Math.random()*400)+100);
+        })
+
+        let btn = document.getElementById("btn");
+        btn.addEventListener("mouseover", function () {
+            let box = document.getElementsByClassName("box");
+            // box[0].style.backgroundColor = "green";
+            box[0].classList.add("active"); //중요
+        })
+
+        btn.addEventListener("mouseout", function () {
+            let box = document.getElementsByClassName("box");
+            // box[0].style.backgroundColor = "green";
+            box[0].classList.remove("active");
+        })
+
+        // let box = document.getElementsByClassName("box");
+        // box[0].style.backgroundColor = "blue";
+
+        
+        //toggle 버튼 연습 필요
+
+        //create element 실습
+        // let elementAdd = document.getElementById("element-add");
+        // let elementAddButton = document.createElement("BUTTON");
+        // elementAddButton.innerText = "추가";
+        // elementAddButton.style.color = "red";
+        // elementAddButton.style.padding = "10px 20px"
+        // elementAddButton.style.borderRadius = "5px";
+        // elementAddButton.style.cursor = "pointer";
+        // elementAddButton.style.boxShadow = "0 0 10px 0 rgba(0, 0, 0, 0.5)"
+        // elementAdd.appendChild(elementAddButton);
+        
+        
+        //동적 div 추가 실습
+        let i = 0;
+        let elementAddButton = document.getElementById("element-add-button");
+        elementAddButton.addEventListener("click", function () {
+            let elementAdd = document.getElementById("element-add");
+            let elementAddDiv = document.createElement("div");
+            i++;
+            elementAddDiv.innerText = "추가" + i;
+            elementAddDiv.style.color = "red";
+            elementAddDiv.style.padding = "10px 20px"
+            elementAddDiv.style.borderRadius = "5px";
+            elementAddDiv.style.cursor = "pointer";
+            elementAddDiv.style.boxShadow = "0 0 10px 0 rgba(0, 0, 0, 0.5)"
+            elementAdd.appendChild(elementAddDiv);
+        })
+
+        //이동, 삭제
+        let moveElementButton = document.getElementById("move-element");
+        moveElementButton.addEventListener("click", function () {
+            let box = document.getElementsByClassName("box");
+            let body = document.getElementsByTagName("body");
+            // body[0].appendChild(box[0]);
+            body[0].insertBefore(box[0], body[0].firstChild);
+        })
+
+        let removeElementButton = document.getElementById("remove-element");
+        removeElementButton.addEventListener("click", function () {
+            let title = document.getElementById("greeting");
+            // title.remove();
+            let elementAddDiv = document.getElementById("element-add");
+            elementAddDiv.firstChild.parentElement.removeChild(elementAddDiv.lastChild);
+        })
+    </script>
+</body>
+</html>
