@@ -4,6 +4,7 @@ let buttons = {};
 let addMine = 0;
 let num_mine = 0;
 let num_mine_remain = 0;
+let button_remain = 0;
 let w, h;
 let numNearby = 0;
 
@@ -61,6 +62,7 @@ function create_map (w, h) {
     //함수 테스트용
     // w = Number(prompt("너비를 입력하세요 (정수값)"));
     // h = Number(prompt("높이를 입력하세요 (정수값)"));
+    button_remain = w * h;
 
     container.innerHTML = "";
 
@@ -95,6 +97,13 @@ function create_map (w, h) {
                     const nearby = nearbyMine(x, y);
                     this.textContent = nearby > 0 ? nearby : "";
                     this.disabled = true;
+                    button_remain--;
+                    console.log(`남은 버튼: ${button_remain}`);
+                    //승리
+                    if ((num_mine_remain === 0) && ((button_remain - num_mine) === 0)) {
+                        alert("승리!!!");
+                        location.href='get_test.html'
+                    }
                 }
             });
 
@@ -106,10 +115,18 @@ function create_map (w, h) {
                     this.textContent = "";
                     num_mine_remain++;
                     console.log(`남은 갯수: ${num_mine_remain}`);
+                    if ((num_mine_remain === 0) && (button_remain === 0)) {
+                        alert("승리!!!");
+                        location.href='get_test.html'
+                    }
                 } else if (this.textContent === "") {
                     this.textContent = "🚩";
                     num_mine_remain--;
                     console.log(`남은 갯수: ${num_mine_remain}`);
+                    if ((num_mine_remain === 0) && (button_remain === 0)) {
+                        alert("승리!!!");
+                        location.href='get_test.html'
+                    }
                 }
             });
 
