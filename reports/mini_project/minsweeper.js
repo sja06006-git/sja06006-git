@@ -1,5 +1,6 @@
 let mine_array = [];
 let mine_array_row = [];
+let buttons = {};
 let addMine = 0;
 let num_mine = 0;
 let num_mine_remain = 0;
@@ -52,6 +53,7 @@ function nearbyMine(x, y) {
     }
     return count;
 }
+
 //지뢰가 배치된 맵 생성
 //prompt를 통해 맵 너비와 지뢰 갯수 받아오기
 //0은 빈공간 1은 지뢰
@@ -67,7 +69,7 @@ function create_map (w, h) {
     container.style.rowGap = "0";
     container.style.columnGap = "0";
 
-    let buttons = {};
+    buttons = {};
     for (let i=0; i<h; i++) {
         for (let j=0; j<w; j++) {
             let button = document.createElement("button");
@@ -87,7 +89,8 @@ function create_map (w, h) {
                 if (mine_array[y][x] === 1) {
                     this.textContent = "💣";
                     this.style.backgroundColor = "red";
-                    alert("지뢰를 클릭했습니다!");
+                    alert("펑! 게임 오버");
+                    location.href='get_test.html'
                 } else {
                     const nearby = nearbyMine(x, y);
                     this.textContent = nearby > 0 ? nearby : "";
@@ -101,8 +104,12 @@ function create_map (w, h) {
 
                 if (this.textContent === "🚩") {
                     this.textContent = "";
+                    num_mine_remain++;
+                    console.log(`남은 갯수: ${num_mine_remain}`);
                 } else if (this.textContent === "") {
                     this.textContent = "🚩";
+                    num_mine_remain--;
+                    console.log(`남은 갯수: ${num_mine_remain}`);
                 }
             });
 
@@ -111,17 +118,10 @@ function create_map (w, h) {
             let index = `${j}${i}`;
             buttons[index] = button;
 
-            if(Math.random() <= 0.75) {
+            if(Math.random() <= 0.8) {
                 mine_array_row.push(0);
             }
             else {
-                // if (num_mine === addMine) {
-                //     mine_array_row.push(0);
-                // }
-                // else {
-                //     mine_array_row.push(1);
-                //     num_mine++;
-                // }
                 mine_array_row.push(1);
                 num_mine++;
             }
@@ -145,26 +145,6 @@ function create_map (w, h) {
 
 //map 위를 덮을 타일 생성 및 상호작용 구현 (상호작용은 별개로? 시작 및 재시작시에만 함수 두개 활용하고 상호작용은 별개로 구현할지도)
 //좌클릭: 타일 열기/열린 타일 클릭시 표시갯수와 숫자 일치시 주변 타일 전부 열기 , 우클릭: 지뢰 표시/타일 위에 마우스 올리면 주변 타일 강조
-function reset_tile () {
-
-}
-
-//타일과의 상호작용 구현
-function tile_reaction () {
-
-}
-
-//일단 구현해보기
-//타일 호버 상호작용부터 x,y좌표에 대해
-
-
-// let btn = document.getElementsByTagName("button");
-// for (let i = 0; i < btn.length; i++) {
-//     btn[i].addEventListener("click", function () {
-//         button.textContent = "1";
-//     })
-// }
-
 
 //주변 타일 표시 더 진행해보기
 
