@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 검증</title>
+</head>
+<body>
+    <input type="text" id="orderName" placeholder="주문자 이름">
+    <input type="text" id="shipName" placeholder="수령인 이름">
+    <input type="checkbox" id="same" onclick="copyName()">
+
+    <br>
+
+    <input type="text" id="userName" placeholder="이름 입력">
+    <input type="number" id="userAge" placeholder="나이 입력">
+    <input type="submit" id="submit" value="제출" onclick="validateForm()">
+
+    <br>
+
+    <input type="radio" name="gender" id="male" value="male" onclick="validateGender()">
+    <label for="gender">남자</label>
+    <input type="radio" name="gender" id="female" value="female" onclick="validateGender()">
+    <label for="gender">여자</label>
+
+    <select id="country" onchange="validateCountry">
+        <option value="usa">미국</option>
+        <option value="jp">일본</option>
+        <option value="ger">독일</option>
+    </select>
+
+
+    <script>
+        function copyName() {
+            if (document.getElementById("same").checked) {
+                document.getElementById("shipName").value = document.getElementById("orderName").value;
+            }
+            else {
+                document.getElementById("shipName").value = "";
+            }
+        }
+
+        function validateForm() {
+            let name = document.getElementById("userName").value;
+            let age = document.getElementById("userAge").value;
+
+            if (name === "") {
+                alert("이름을 입력하세요.");
+                return false;
+            }
+
+            if (isNaN(age) || age < 1) {
+                alert("나이를 제대로 입력하세요.");
+                return false;
+            }
+
+            alert("제출 완료!")
+            return true;
+        }
+
+        function validateGender() {
+            alert(document.querySelector('input[name="gender"]:checked').value);
+            let male = document.getElementById("male").checked;
+            let female = document.getElementById("female").checked;
+            console.log(male, female);
+        }
+
+        function validateCountry() {
+            let country = document.getElementById("country").value;
+            console.log(country);
+        }
+    </script>
+
+    <form id="signupForm">
+        <input type="text" id="username" placeholder="이름 입력"><br>
+        <input type="email" id="email" placeholder="이메일 입력"><br>
+        <input type="password" id="password" placeholder="비밀번호 입력"><br>
+        <input type="password" id="confirmPassword" placeholder="비밀번호 확인"><br>
+        <button type="submit">가입</button>
+    </form>
+
+    <div id="preview">
+        <p id="preview_name"></p>
+        <p id="preview_email"></p>
+        <p id="preview_password"></p>
+    </div>
+
+    <script>
+
+    function preview() {
+
+            let preview_userName = document.getElementById("preview_name");
+            let preview_email = document.getElementById("preview_email");
+            let preview_password = document.getElementById("preview_password");
+
+            preview_userName.innerHTML = username.value;
+            preview_email.textContent = email.value;
+            preview_password.innerText = password.value;
+        }
+
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+        e.preventDefault(); // 폼 제출 막기
+
+        const username = document.getElementById("username").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (!username) {
+            alert("이름을 입력하세요.");
+            return;
+        }
+
+        const emailRegex = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
+        if (!emailRegex.test(email)) {
+            alert("올바른 이메일을 입력하세요.");
+            return;
+        }
+
+        if (password.length < 8) {
+            alert("비밀번호는 8자 이상이어야 합니다.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("비밀번호가 일치하지 않습니다.");
+            return;
+        }
+
+        preview();
+        alert("회원가입 성공!");
+        // 이곳에 실제 서버 전송 코드를 추가
+        // preview();
+    });
+    </script>
+
+    <form id="myForm">
+        <input type="email" required>
+        <button>제출</button>
+    </form>
+
+    <script>
+    const form = document.getElementById("myForm");
+    form.addEventListener("submit", function(e) {
+        if (!form.checkValidity()) {
+        e.preventDefault(); // 유효성 통과 못하면 제출 막기
+        alert("필드를 올바르게 입력하세요.");
+        }
+    });
+    </script>
+
+    <!-- <script>
+        let userName = getElementById("userName").value;
+        let email = getElementById("email").value;
+        let password = getElementById("password").value;
+
+        let preview_userName = getElementById("preview_userName");
+        let preview_email = getElementById("preview_email");
+        let preview_password = getElementById("preview_password");
+
+        function preview() {
+            preview_userName.textContent = userName;
+            preview_email.textContent = email;
+            preview_password.textContent = password;
+        }
+    </script> -->
+</body>
+</html>

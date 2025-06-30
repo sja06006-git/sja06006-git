@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="browser"></p>
+    <p id="dpsize"></p>
+    <p id="blanguage"></p>
+    <p id="local"></p>
+    <script>
+        let browser = document.getElementById("browser");
+        let dpsize = document.getElementById("dpsize");
+        let blanguage = document.getElementById("blanguage");
+        let local = document.getElementById("local");
+
+        browser.innerText = navigator.platform;
+        dpsize.innerText = screen.width + "x" + screen.height;
+        blanguage.innerText = navigator.language;
+        local.innerText = navigator.geolocation.getCurrentPosition((position) => {
+            doSomething(position.coords.latitude, position.coords.longitude);
+        });
+
+    </script>
+</body>
+</html>

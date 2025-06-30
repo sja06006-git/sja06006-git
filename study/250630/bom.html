@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 검증</title>
+</head>
+<body>
+    <script>
+        function openPopup() {
+            window.open("https://www.naver.com", "popup", "width=300, height=300")
+        }
+
+        setTimeout(openPopup, 3000);
+
+        console.log(navigator.userAgent);
+        console.log(navigator.language);
+        console.log(navigator.platform);
+        console.log(navigator.appName);
+        console.log(navigator.appVersion);
+
+        // if (confirm("구글로 이동할까요?")) {
+        //     location.href = "https://www.google.com"
+        // }
+        // else {
+        //     location.href = "https://www.naver.com"
+        // }
+
+        console.log("너비", screen.width);
+        console.log("높이", screen.height);
+
+        // history.back();
+        // history.forward();
+    </script>
+
+    <button onclick="openTheWindow()">새창 띄우기</button>
+
+    <script>
+        function openTheWindow() {
+            window.open("https://www.naver.com", "popup", "width="+screen.width+",height="+screen.height);
+        }
+
+        function autoMovePage() {
+            setTimeout(function() {
+                location.href="https://www.naver.com";
+            },3000);
+        }
+    </script>
+
+    <form action=""></form>
+    <button onclick="history.back()">뒤로 가기</button>
+    <button onclick="history.forward()">앞으로 가기</button>
+
+    <script>
+        function goBack(i) {
+            history.back(i);
+        }
+
+        function goForward(i) {
+            history.forward(i);
+        }
+    </script>
+</body>
+</html>

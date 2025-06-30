@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="get">
+        <input type="text" name="userName" id="userName" placeholder="이름">
+        <input type="email" name="userEmail" id="userEmail" placeholder="메일">
+        <input type="password" name="userPassword" id="userPassword" placeholder="비밀번호">
+        <input type="password" name="validPassword" id="validPassword" placeholder="비밀번호 확인">
+        <input type="submit" value="제출" onclick="validation()">
+    </form>
+    <script>
+        let userName = document.getElementById("userName").value;
+        let userEmail = document.getElementById("userEmail").value;
+        let userPassword = document.getElementById("userPassword").value;
+        let validPassword = document.getElementById("validPassword").value;
+        const emailForm = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
+
+        function validation() {
+            if (userName === "") {
+                alert("이름을 입력하세요.");
+                return false;
+            }
+
+            if (!emailForm.test(email)) {
+                alert("메일 주소를 바르게 입력하세요.");
+                return false;
+            }
+
+            if (userPassword.length < 8) {
+                alert("비밀번호는 8자 이상이어야 합니다.")
+                return false;
+            }
+
+            if (userPassword !== validPassword) {
+                alert("비밀번호가 일치하지 않습니다.")
+                return false;
+            }
+            else {
+                alert("가입 완료!")
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
