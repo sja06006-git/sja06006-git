@@ -26,7 +26,8 @@ window.onload = function () {
     // let mines = params.mines;
 
     if (isNaN(w) || isNaN(h)) {
-        alert("맵 크기와 지뢰 개수를 정확히 입력해주세요!");
+        alert("맵 크기를 정확히 입력해주세요!");
+        location.replace("get_test.html")
         return;
     }
 
