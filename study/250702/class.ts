@@ -103,3 +103,11 @@ interface Vehicle {
     accelerate(): void;
     stiring(): void;
 }
+
+//generic
+function identity<T>(value: T): T {
+    return value;
+}
+
+let output1 = identity<number>(123);
+let output2 = identity<string>("123");
