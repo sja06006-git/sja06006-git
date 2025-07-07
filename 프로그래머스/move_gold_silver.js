@@ -22,10 +22,21 @@
 
 
 // 우선순위 정하기
-// t와 w로 단위시간당 용량 > 각 도시의 자원량
+// t와 w로 단위시간당 수송량 > 각 도시의 자원량
+//
 
 
 function solution(a, b, g, s, w, t) {
     var answer = -1;
+    // 단위시간당 수송량 배열
+    let unitW = [];
+    // 단위수송량 배열 값 할당
+    for (let i=0; i<g.length; i++) {
+        unitW[i] = w[i] / t[i];
+        console.log(unitW[i]);
+    }
+    
     return answer;
 }
+
+solution(90, 500, [70,70,0], [0,0,500], [100,100,2], [4,8,1]);
