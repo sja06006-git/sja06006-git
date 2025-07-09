@@ -34,20 +34,51 @@ function solution(a, b, g, s, w, t) {
     let count = 0;
     // 금의 누적 이송량 확인을 위한 배열
     let g_total = [];
+    // 배열 합계
+    let total_g = 0;
     // 은의 누적 이송량 확인을 위한 배열
     let s_total = [];
+    // 배열 합계
+    let total_s = 0;
     // t_total은 운송에 소요할 총 시간
     let t_total = 1;
     // 모든 input value가 정수이므로 t_total도 정수범위에서 증가시키기
     // while로 조건을 만족할 때까지 반복
     while (true) {
+        // frequency 배열값 생성
         for (let i=0; i<t.length; i++) {
             count = Math.floor(t_total / (2 * t[i]));
-            if (t_total % (2 * t[i])) {
+            if (t_total % (2 * t[i]) >= t[i]) {
                 count++;
             }
             frequency[i] = count;
             count = 0;
+        }
+        // g_total의 배열값 생성
+        for (let i=0; i<t.length; i++) {
+            if (g[i] > 0) {
+                g_total[i] = frequency[i] * w[i];
+            }
+        }
+        // s_total의 배열값 생성
+        for (let i=0; i<t.length; i++) {
+            if (s[i] > 0) {
+                s_total[i] = frequency[i] * w[i];
+            }
+        }
+        
+        // g_total 요소 모두 더하기
+        for (let i=0; i<t.length; i++) {
+            total_g += g_total[i];
+        }
+        // s_total 요소 모두 더하기
+        for (let i=0; i<t.length; i++) {
+            total_s += s_total[i];
+        }
+
+        // while문의 break 요건 체크하기
+        if (total_g > a && total_s > b) {
+            break;
         }
         t_total++;
     }
@@ -56,13 +87,13 @@ function solution(a, b, g, s, w, t) {
     // 배열값 확인 출력용 (추후 삭제)
     
     // for (let i=0; i<gIndex.length; i++) {
-    //     console.log(gIndex[i]);
+    //     console.log();
     // }
     // for (let i=0; i<sIndex.length; i++) {
-    //     console.log(sIndex[i]);
+    //     console.log();
     // }
     // for (let i=0; i<g.length; i++) {
-    //     console.log(fastest[i]);
+    //     console.log();
     // }
     return answer;
 }
