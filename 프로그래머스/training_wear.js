@@ -14,9 +14,29 @@
 
 function solution(n, lost, reserve) {
     var answer = 0;
-    let numLost = lost.length; //잃어버린 사람 수
-    let numReserve = reserve.length; //빌려줄 수 있는 사람 수
-    // let duplication = ; //여분이 있으나 도난당한 사람 수
+    // let numLost = lost.length; //잃어버린 사람 수
+    // let numReserve = reserve.length; //빌려줄 수 있는 사람 수
+    // let duplication = 0; //여분이 있으나 도난당한 사람 수
+    let check = [[]]; //lost의 앞뒤값 확인 후 기록을 위한 2차원 배열
+    // reserve 배열에서 lost배열과 중복되는 값 제거하기
+    for (let i=0; i<reserve.length; i++) {
+        if (lost.find(num => {num === reserve[i]}) !== undefined) {
+            reserve.filter((num) => {num !== reserve[i]});
+        }
+    }
+    // lost배열을 돌며 reserve 배열의 본인 앞 뒤 번호가 있는지 확인
+    for (let i=0; i<lost.length; i++) {
+        // 본인 앞 번호 확인
+        if (reserve.includes(lost[i] - 1)) {
+            check[i][0] = lost[i] - 1;
+        }
+        // 본인 뒷 번호 확인
+        if (reserve.includes(lost[i] + 1)) {
+            check[i][1] = lost[i] + 1;
+        }
+    }
+    // check 배열에서 check[i][1]과 check[i+1][0] 간의 중복 요소 확인
+    
 
     return answer;
 }
