@@ -62,3 +62,18 @@ export default function App() {
     </div>
   )
 }
+
+// 아래는 useEffect 없이 타이머와 useState를 사용했을 때 생기는 문제를 보기 위한 코드
+
+// import { useState } from "react";
+
+// export default function App() {
+//   const [count, setCount] = useState(0);
+
+//   setInterval(() => {
+//     setCount(prev => prev + 1);
+//     console.log(count);
+//   }, 1000);
+
+//   return <h1>{count}</h1>;
+// }
