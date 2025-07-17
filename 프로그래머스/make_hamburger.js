@@ -8,38 +8,70 @@
 // 주어지는 배열 ingredient
 // 1: 빵, 2: 야채, 3: 고기 => 포장되는 햄버거는 1, 2, 3, 1이 한 묶음
 
+
+//수정해볼 코드
+//스택 활용하여 수정해보기
+
+function solution(ingredient) {
+    var answer = 0;
+    let arr = [];
+    
+    for (let i=0; i<ingredient.length; i++) {
+        arr.push(ingredient[i]);
+        if (arr[arr.length-4] === 1 && arr[arr.length-3] === 2 && arr[arr.length-2] === 3 && arr[arr.length-1] === 1) {
+            arr.pop();
+            arr.pop();
+            arr.pop();
+            arr.pop();
+            answer++;
+        }
+    }
+    
+    return answer;
+}
+
+
+
+
+// 얘도 n^2
+
+// function solution(ingredient) {
+//     var answer = 0;
+//     let str = "";
+    
+//     for (let i=0; i<ingredient.length; i++) {
+//         str += ingredient[i];
+//         str.endsWith("1231");
+//         if (str.endsWith("1231") === true) {
+//             str= str.slice(0, -4);
+//             answer++;
+//         }
+//     }
+    
+//     return answer;
+// }
+
+
+
+// // 1차로 작성한 코드
+// // 동작은 하지만 시간 복잡도가 O(n^2)으로 1 ≤ ingredient의 길이 ≤ 1,000,000인 배열범위에서 지나치게 커지는 경우가 발생함
+// // 공간복잡도도 활용 필요, 동적 할당 범위? 동적 개입법
 function solution(ingredient) {
     var answer = 0;
     let str = "";
-    let reStr = "";
 
-    for (let i=0; i<ingredient.length; i++) {
-        str.join(ingredient[i]);
-    }
-
-    // 초기 시행일 때
-    if (answer === 0) {
-        // 만들 수 없으면
-        if (!str.includes("1231")){
-            answer = "상수가 포장할 수 있는 햄버거가 없습니다.";
-        }
-        // 만들 수 있으면
-        else {
+    str = ingredient.join('');
+    
+    // 조립할 수 없을 때 까지 반복 (1회는 반드시 시행)
+    do {
+        // 초기 시행일 때
+        if (str.includes("1231") === true){
             if(str.indexOf("1231") !== 0) {
-                str = str.slice(0, (str.indexOf("1231") - 1)) + str.slice((str.indexOf("1231") + 4), (str.length - 1))
+                str = str.slice(0, str.indexOf("1231")) + str.slice((str.indexOf("1231") + 4), str.length);
+                answer++;
             }
         }
-    }
-    // 2회차 이상일 때
-    else {
-        if (!str.includes("1231")){
-            
-        }
-        else {
-            if(str.indexOf("1231") !== 0) {
-                str = str.slice(0, (str.indexOf("1231") - 1)) + str.slice((str.indexOf("1231") + 4), (str.length - 1))
-            }
-        }
-    }
+    }while(str.includes("1231"))
+    
     return answer;
 }
