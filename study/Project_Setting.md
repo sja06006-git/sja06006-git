@@ -10,6 +10,9 @@ npm i -D @types/chance @types/luxon
 npm i -D postcss autoprefixer tailwindcss@3.4.17
 npm i -D daisyui@4.12.12
 npx tailwindcss init -p
+
+# Redux 구성
+npm i redux @reduxjs/toolkit react-redux
 ```
 
 ## tailwind.config.js
