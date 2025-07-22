@@ -1,6 +1,6 @@
 ## 설치 명령어
 ```bash
-npx create-react-app my-app --template typescript
+npx create-react-app A --template typescript
 
 # 폰트 및 유틸리티 설치
 npm i chance luxon @fontsource/material-icons
