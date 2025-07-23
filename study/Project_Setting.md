@@ -18,7 +18,7 @@ npm i @types/redux-logger @types/redux-thunk
 npm i react-dnd react-dnd-html5-backend
 npm i -D @types/react-dnd
 npm i --legacy-peer-deps react-beautiful-dnd
-npm i @types/react-beautiful-dnd
+npm i -D @types/react-beautiful-dnd --legacy-peer-deps
 ```
 
 ## tailwind.config.js
