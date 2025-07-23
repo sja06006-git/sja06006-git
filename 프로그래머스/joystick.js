@@ -8,12 +8,38 @@
 //console.log("Z".charCodeAt(0));
 // console.log("A"-"Z");
 
+function checking(current, checked) {
+    console.log("함수 시작");
+
+    if (current === 0 && checked[0] === 0) {
+        checked[0] = 1;
+    }
+    // 배열의 끝까지만 검사하기
+    for (let i=current; i<checked.length; i++) {
+        // if (checked[i]) {}
+        console.log("for1")
+        console.log(checked[i+1]);
+        checked[i+1] = 1;
+    }
+    // 배열의 처음까지만 검사하기
+    for (let i=current; i>0; i--) {
+        // if (checked[i-1]) {}
+        console.log("for2")
+        console.log(checked[i-1]);
+        checked[i-1] = 1;
+    }
+
+    console.log(checked)
+    console.log("함수 종료");
+}
+
 function solution(name) {
     var answer = 0;
     let up = 0;
     let down = 0;
     let path = [];
-    let count = [];
+    let checked = [];
+    let current = 0;
     let tempA = 0;
 
     // 상하조작 횟수 체크 위해 숫자 변환 후 작은 값을 answer +=
@@ -43,20 +69,47 @@ function solution(name) {
 
         for (let i=0; i<name.length; i++) {
             if (name[i] !== "A") {
-                path.push(0)
+                path.push(0);
+                checked.push(0);
             }
             else {
                 tempA++;
                 if (name[i + 1] !== "A") {
                     path.push(tempA);
+                    checked.push(1);
                     tempA = 0;
                 }
             }
         }
         console.log(path); // path 출력 확인
+        console.log(checked); // checked 확인
 
         // path를 통한 연산 구현하기
         // 0은 문자 하나, 0이외는 A의 개수임을 명확히 고려하기
+        // ex
+        // ABAAAAAB => 1050
+        // 검사 여부 체크? 1: 검사됨, 0: 검사 안됨
+        // 양방향으로 가장 가까운 path = 0 && checked = 0 찾기 (현재 위치 current를 기준으로)
+        while(checked.includes(0)) {
+            console.log(".")
+            if (current === 0 && checked[0] === 0) {
+                checked[0] = 1;
+            }
+            // 배열의 끝까지만 검사하기
+            for (let i=current; i<checked.length-checked; i++) {
+                // if (checked[i]) {}
+                console.log("for1")
+                console.log(checked[i+1]);
+                checked[i+1] = 1;
+            }
+            // 배열의 처음까지만 검사하기
+            for (let i=current; i>0; i--) {
+                // if (checked[i-1]) {}
+                console.log("for2")
+                console.log(checked[i-1]);
+                checked[i+1] = 1;
+            }
+        }
 
         
 
