@@ -13,10 +13,9 @@ npx tailwindcss init -p
 
 # Redux 구성
 npm i redux @reduxjs/toolkit react-redux
-npm i redux-logger redux-thunk
-npm i @types/redux-logger @types/redux-thunk
+npm i redux-logger
+npm i @types/redux-logger
 npm i react-dnd react-dnd-html5-backend
-npm i -D @types/react-dnd
 npm i --legacy-peer-deps react-beautiful-dnd
 npm i -D @types/react-beautiful-dnd --legacy-peer-deps
 ```
@@ -35,17 +34,6 @@ module.exports = {
 
 
 
-```
-
-## postcss.config.js
-```js
-
-module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-}
 ```
 
 ## src/index.css
@@ -90,4 +78,16 @@ root.render(
 
 reportWebVitals();
 
+```
+
+
+## postcss.config.js
+```js
+
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
 ```
