@@ -18,6 +18,9 @@ npm i -D @types/redux-logger
 npm i react-dnd react-dnd-html5-backend
 npm i --legacy-peer-deps react-beautiful-dnd
 npm i -D @types/react-beautiful-dnd --legacy-peer-deps
+
+# 라우터 구성
+npm i react-router-dom
 ```
 
 ## tailwind.config.js
