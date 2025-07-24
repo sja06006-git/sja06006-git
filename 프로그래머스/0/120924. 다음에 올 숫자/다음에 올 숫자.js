@@ -1,8 +1,6 @@
 function solution(common) {
-    var answer = 0;
-    let lastIndex = common.length - 1
-    let add = common[lastIndex] - common[lastIndex - 1];
-    let multiple = common[lastIndex] / common[lastIndex - 1];
+    let lastIndex = common.length - 1;
+    let condition = common[lastIndex] - common[lastIndex - 1] === common[lastIndex - 1] - common[lastIndex - 2];
 
-    return common[lastIndex] / common[lastIndex - 1] === common[lastIndex - 1] / common[lastIndex - 2] ? answer = common[lastIndex] * multiple : answer = common[lastIndex] + add;
+    return condition ? common[lastIndex] + common[1] - common[0] : common[lastIndex] * common[1] / common[0];
 }
