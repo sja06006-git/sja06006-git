@@ -14,7 +14,7 @@ npx tailwindcss init -p
 # Redux 구성
 npm i redux @reduxjs/toolkit react-redux
 npm i redux-logger
-npm i @types/redux-logger
+npm i -D @types/redux-logger
 npm i react-dnd react-dnd-html5-backend
 npm i --legacy-peer-deps react-beautiful-dnd
 npm i -D @types/react-beautiful-dnd --legacy-peer-deps
