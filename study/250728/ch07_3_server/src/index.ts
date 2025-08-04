@@ -8,7 +8,7 @@ import { getPubilcDirPath } from "./config";
 
 makeDir(getPubilcDirPath())
 
-const hostname = 'localhost', port = 4000
+const hostname = 'localhost', port = 3000
 
 // prettier-ignore
 const app = express()

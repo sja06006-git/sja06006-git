@@ -1,7 +1,7 @@
 import {createServer} from 'http'
 import {getPublicDirPath} from './config'
 import {makeDir} from './utils'
-import {createExpressApp} from './express'
+import { createExpressApp } from './express'
 import type {MongoDB} from './mongodb'
 import {connectAndUseDB} from './mongodb'
 
@@ -16,4 +16,4 @@ const connectCallback = (db: MongoDB) => {
   )
 }
 
-connectAndUseDB(connectCallback, 'ch07', 'mongodb://192.168.0.20:27017')
+connectAndUseDB(connectCallback, 'ch07')

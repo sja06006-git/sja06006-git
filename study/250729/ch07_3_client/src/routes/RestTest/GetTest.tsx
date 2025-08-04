@@ -6,11 +6,11 @@ export default function GetTest() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch('http://localhost:4000/test')
+    fetch('http://localhost:3000/test')
     .then(res => res.json)
     .then(data => setData(data))
     .catch(error => setErrorMessage(error.message))
-  })
+  }, [])
   return (
     <div>
       <p className="text-2xl text-center text-bold">GetTset</p>
