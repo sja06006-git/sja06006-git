@@ -113,8 +113,8 @@ GET greeting                           # "hello"
 INCR counter                           # 1 (문자열을 정수로 취급)
 INCRBY counter 10                      # 11
 EXPIRE greeting 10                     # 10초 후 만료
-TTL greeting                           # 남은 TTL 확인
-PERSIST greeting                       # 만료 제거
+TTL greeting                           # 남은 TTL 확인 (만료까지 남은 값)
+PERSIST greeting                       # 만료 제거 (만료 이전에 사용시 즉시 처리)
 ```
 
 ### 4-3. 키 탐색(실무 팁: KEYS 대신 SCAN)
@@ -149,7 +149,7 @@ LPOP tasks
 ```bash
 SADD tags "redis" "nosql" "cache"
 SMEMBERS tags
-SISMEMBER tags "redis"                 # 1
+SISMEMBER tags "redis"                 # 1 (boolean 0, 1 반환)
 SADD tags2 "cache" "db"
 SINTER tags tags2                      # 교집합
 SUNION tags tags2                      # 합집합
