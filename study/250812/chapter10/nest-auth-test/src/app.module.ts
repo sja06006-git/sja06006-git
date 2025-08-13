@@ -20,6 +20,6 @@ import { UserService } from './user/user.service';
     AuthModule],
   controllers: [AppController],
   providers: [AppService],
-  exports: [UserService]
+  // exports: [UserService]
 })
 export class AppModule {}
