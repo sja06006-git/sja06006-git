@@ -1,4 +1,4 @@
 export const getServerUrl = (path: string) => {
-  const host = 'http://127.0.0.1:4000'
+  const host = 'http://0.0.0.0:3000'
   return [host, path].join('')
 }
